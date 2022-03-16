@@ -7,7 +7,7 @@ function getItem(sKey) {
     return false;
   }
 
-  const regexKeyPart = encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$&');
+  const regexKeyPart = encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$\\&');
   const fullRegex = new RegExp(`(?:(?:^|.*;)\\s*${regexKeyPart}\\s*\\=\\s*([^;]*).*$)|^.*$`);
 
   return decodeURIComponent(document.cookie.replace(fullRegex, '$1')) || null;
