@@ -22,7 +22,7 @@ function hasItem(sKey) {
     return false;
   }
 
-  const regex = new RegExp(`(?:^|;\\s*)${encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$&')}\\s*\\=`);
+  const regex = new RegExp(`(?:^|;\\s*)${encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$\\&')}\\s*\\=`);
 
   return regex.test(document.cookie);
 };
